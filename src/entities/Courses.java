@@ -3,6 +3,7 @@ package entities;
 import services.RegisterUser;
 import utils.InputManager;
 
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,7 +14,7 @@ public class Courses {
     private Set<Users> B = new TreeSet<>((e1, e2) -> e1.getName().compareTo(e2.getName()));
     private Set<Users> C = new TreeSet<>((e1, e2) -> e1.getName().compareTo(e2.getName()));
 
-    InputManager inputManager = new InputManager();
+    private Scanner sc = InputManager.getSc();
 
     public Courses(RegisterUser registerUser) {
         this.registerUser = registerUser;
@@ -25,7 +26,7 @@ public class Courses {
 
         int n;
         try {
-            n = Integer.parseInt(inputManager.getSc().nextLine());
+            n = Integer.parseInt(sc.nextLine());
             if (n <= 0) {
                 System.out.println("O número de vagas deve ser positivo.");
                 return;
@@ -47,7 +48,7 @@ public class Courses {
             System.out.print("Digite o ID do aluno para a vaga " + (vacancies+1) + ": ");
 
             try {
-                int id = Integer.parseInt(inputManager.getSc().nextLine());
+                int id = Integer.parseInt(sc.nextLine());
 
                 if (id <= 0) {
                     System.out.println("O ID do aluno deve ser positivo.");

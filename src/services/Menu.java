@@ -2,13 +2,14 @@ package services;
 
 import utils.InputManager;
 
+import java.util.Scanner;
 
 
 public class Menu {
 
     private RegisterUser registerUser;
+    private Scanner sc = InputManager.getSc();
 
-    InputManager inputManager = new InputManager();
 
     public Menu(RegisterUser registerUser) {
         this.registerUser = registerUser;
@@ -23,7 +24,7 @@ public class Menu {
                 System.out.println("Desejar adicionar mais um estudante?");
                 System.out.println("1 - SIM");
                 System.out.println("2 - NAO");
-                choice = Integer.parseInt(inputManager.getSc().next());
+                choice = Integer.parseInt(sc.nextLine());
 
                 if (choice != 1 && choice != 2) {
                     throw new IllegalArgumentException("Opção inválida!");

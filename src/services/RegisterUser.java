@@ -5,14 +5,16 @@ import entities.Users;
 import utils.InputManager;
 import utils.NameFormatter;
 
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class RegisterUser {
 
+    private Scanner sc = InputManager.getSc();
+
     Set<Users> listUsers = new TreeSet<>();
 
-    InputManager inputManager = new InputManager();
 
     public void register() {
         System.out.println("REGISTRO DE ESTUDANTE");
@@ -20,7 +22,7 @@ public class RegisterUser {
         while (true) {
             try {
                 System.out.print("Nome do estudante:");
-                name = inputManager.getSc().nextLine();
+                name = sc.nextLine();
 
 
                 if (!name.matches("[a-zA-ZÀ-ÿ ]{3,}")) {

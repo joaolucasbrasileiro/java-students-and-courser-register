@@ -3,6 +3,7 @@ package services;
 
 import entities.Users;
 import utils.InputManager;
+import utils.NameFormatter;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -26,7 +27,8 @@ public class RegisterUser {
                     throw new IllegalArgumentException("Nome contem caractere inválido!");
                 }
 
-                Users user = new Users(name);
+                NameFormatter nameFmt = new NameFormatter();
+                Users user = new Users(nameFmt.nameFormatter(name));
                 listUsers.add(user);
                 break;
 

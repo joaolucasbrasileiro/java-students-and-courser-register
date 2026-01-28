@@ -33,4 +33,9 @@ public class UserRegistrationController {
         System.out.print("TOTAL DE ESTUDANTES MATRICULADOS: " + courses.getTotalCourseUsers());
     }
 
+    public void start () {
+        flow();
+        courseController();
+    }
+
 }

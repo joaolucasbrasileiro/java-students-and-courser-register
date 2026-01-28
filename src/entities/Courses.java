@@ -22,26 +22,28 @@ public class Courses {
 
     public void addCourse(String courseName, Set<Users> courseSet) {
 
-        System.out.println("Quantas vagas no curso " + courseName + "?");
+        int n = 0;
+        boolean valid = false;
 
-        int n;
-        try {
-            n = Integer.parseInt(sc.nextLine());
-            if (n <= 0) {
-                System.out.println("O número de vagas deve ser positivo.");
-                return;
+        while (!valid) {
+            System.out.println("Quantas vagas no curso " + courseName + "?");
+            try {
+                n = Integer.parseInt(sc.nextLine());
+                if (n <= 0) {
+                    System.out.println("O número de vagas deve ser positivo.");
+                }
+                valid = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um número válido.");
+                continue;
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Digite um número válido.");
-            return;
-        }
 
-        System.out.println("Serão " + n + " vagas. Inscreva os alunos pelo ID:");
-        System.out.println("ALUNOS DISPONÍVEIS:");
-        for (Users u : registerUser.getListUsers()) {
-            System.out.println(u);
+            System.out.println("Serão " + n + " vagas. Inscreva os alunos pelo ID:");
+            System.out.println("ALUNOS DISPONÍVEIS:");
+            for (Users u : registerUser.getListUsers()) {
+                System.out.println(u);
+            }
         }
-
         int vacancies = 0;
 
         while (vacancies < n) {

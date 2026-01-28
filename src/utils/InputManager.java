@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class InputManager {
 
-    private Scanner sc;
+    private static final Scanner sc = new Scanner(System.in);
 
-    public InputManager() {
-        this.sc = new Scanner(System.in);
-    }
+    private InputManager() {}
 
-    public Scanner getSc() {
+    public static Scanner getSc() {
         return sc;
     }
 

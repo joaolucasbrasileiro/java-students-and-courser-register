@@ -13,7 +13,7 @@ public class RegisterUser {
 
     private Scanner sc = InputManager.getSc();
 
-    Set<Users> listUsers = new TreeSet<>();
+    Set<Users> listUsers = new TreeSet<>(); //Lista de Usuarios(Estudantes)
 
 
     public void register() {

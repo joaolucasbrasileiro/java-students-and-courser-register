@@ -6,8 +6,16 @@ import services.RegisterUser;
 
 public class UserRegistrationController {
 
-    RegisterUser registerUser = new RegisterUser();
-    Menu menu = new Menu(registerUser);
+    private final RegisterUser registerUser;
+    private final Menu menu;
+    private final Courses courses;
+
+    public UserRegistrationController() {
+        this.registerUser = new RegisterUser();
+        this.menu = new Menu(registerUser);
+        this.courses = new Courses(registerUser);
+    }
+
 
     public void flow() {
         int choice = 0;
@@ -17,8 +25,6 @@ public class UserRegistrationController {
 
         }while(choice == 1);
     }
-
-    Courses courses = new Courses(registerUser);
 
     public void courseController() {
         courses.addCourse("A", courses.getCourseA());

@@ -1,19 +1,18 @@
-package services;
+package controller;
 
 
 import entities.Users;
 import utils.InputManager;
 import utils.NameFormatter;
 
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class RegisterUser {
 
     private Scanner sc = InputManager.getSc();
 
-    Set<Users> listUsers = new TreeSet<>(); //Lista de Usuarios(Estudantes)
+    private Set<Users> listUsers = new TreeSet<>();//Lista de Usuarios(Estudantes)
+    private Map<Integer, Users> mapListUsers = new HashMap<>();
 
 
     public void register() {
@@ -32,6 +31,7 @@ public class RegisterUser {
                 NameFormatter nameFmt = new NameFormatter();
                 Users user = new Users(nameFmt.nameFormatter(name));
                 listUsers.add(user);
+                mapListUsers.put(user.getId(), user);
                 break;
 
             } catch (IllegalArgumentException e) {
@@ -44,11 +44,7 @@ public class RegisterUser {
         return listUsers;
     }
     public Users getUsersById(int numberId) {
-        for (Users user : listUsers) {
-            if (user.getId() == numberId) {
-                return user;
-            }
-        }
-        return  null;
+        return mapListUsers.get(numberId);
     }
+
 }

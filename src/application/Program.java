@@ -1,13 +1,13 @@
 package application;
 
 
-import controller.UserRegistrationController;
+import controller.ProgramController;
 
 
 public class Program {
     static void main(String[] args) {
 
-        UserRegistrationController controller = new UserRegistrationController();
+        ProgramController controller = new ProgramController();
         controller.start();
 
     }
